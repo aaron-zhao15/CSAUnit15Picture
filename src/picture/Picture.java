@@ -404,6 +404,37 @@ public class Picture extends SimplePicture {
             }
         }
     }
+    
+    public void blur(int x, int y, int w, int h){
+        Pixel firstPixel = null;
+        Pixel[][] pixels = this.getPixels2D();
+        Color newColor = null;
+        int rVal, gVal, bVal;
+        int numCount;
+        for(int col = x; col < x + w && col < pixels[0].length; col++){
+            for(int row = y; row < y + h && row < pixels.length; row++){
+                firstPixel = pixels[row][col];
+                numCount = 0;
+                rVal = 0;
+                gVal = 0;
+                bVal = 0;
+                for(int i = -1; i <= 1 && row + i < pixels.length; i++){
+                    for(int j = -1; j <= 1 && col + j < pixels[0].length; j++){
+                        rVal += pixels[row+i][col+j].getColor().getRed();
+                        gVal += pixels[row+i][col+j].getColor().getGreen();
+                        bVal += pixels[row+i][col+j].getColor().getBlue();
+                        numCount++;
+                    }
+                }
+                rVal = rVal/numCount;
+                gVal = gVal/numCount;
+                bVal = bVal/numCount;
+                newColor = new Color(rVal, gVal, bVal);
+                firstPixel.setColor(newColor);
+            }
+        }
+        
+    }
 
     /* Main method for testing - each class in Java can have a main 
    * method 

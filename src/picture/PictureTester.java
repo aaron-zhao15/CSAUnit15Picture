@@ -10,10 +10,10 @@ package picture;
 public class PictureTester {
 
     public static void test() {
-        Picture temple = new Picture("seagull.jpg");
+        Picture temple = new Picture("redMotorcycle.jpg");
         temple.explore();
     }
-    
+
     /**
      * Method to test zeroBlue
      */
@@ -30,22 +30,22 @@ public class PictureTester {
         beach.keepOnlyBlue();
         beach.explore();
     }
-    
-    public static void testNegate(){
+
+    public static void testNegate() {
         Picture beach = new Picture("beach.jpg");
         beach.explore();
         beach.negate();
         beach.explore();
     }
-    
-    public static void testGrayscale(){
+
+    public static void testGrayscale() {
         Picture beach = new Picture("beach.jpg");
         beach.explore();
         beach.grayscale();
         beach.explore();
     }
-    
-    public static void testFixUnderwater(){
+
+    public static void testFixUnderwater() {
         Picture beach = new Picture("water.jpg");
         beach.explore();
         beach.fixUnderwater();
@@ -61,21 +61,21 @@ public class PictureTester {
         caterpillar.mirrorVertical();
         caterpillar.explore();
     }
-    
+
     public static void testMirrorVerticalRightToLeft() {
         Picture caterpillar = new Picture("caterpillar.jpg");
         caterpillar.explore();
         caterpillar.mirrorVerticalRightToLeft();
         caterpillar.explore();
     }
-    
+
     public static void testMirrorHorizontalTopToBottom() {
         Picture caterpillar = new Picture("caterpillar.jpg");
         caterpillar.explore();
         caterpillar.mirrorHorizontalTopToBottom();
         caterpillar.explore();
     }
-    
+
     public static void testMirrorHorizontalBottomToTop() {
         Picture caterpillar = new Picture("caterpillar.jpg");
         caterpillar.explore();
@@ -92,14 +92,14 @@ public class PictureTester {
         temple.mirrorTemple();
         temple.explore();
     }
-    
+
     public static void testMirrorArms() {
         Picture temple = new Picture("snowman.jpg");
         temple.explore();
         temple.mirrorArms();
         temple.explore();
     }
-    
+
     public static void testMirrorDiagonal() {
         Picture temple = new Picture("beach.jpg");
         temple.explore();
@@ -107,28 +107,28 @@ public class PictureTester {
         temple.explore();
     }
 
-    public static void testMirrorGull(){
+    public static void testMirrorGull() {
         Picture temple = new Picture("seagull.jpg");
         temple.explore();
         temple.mirrorGull();
         temple.explore();
     }
-    
-    public static void testCopyTwo(){
+
+    public static void testCopyTwo() {
         Picture first = new Picture("seagull.jpg");
         Picture second = new Picture("snowman.jpg");
         first.explore();
         first.copyTwo(second, 78, 298, 102, 295, 170, 387);
         first.explore();
     }
-    
-    public static void testMyCollage(){
+
+    public static void testMyCollage() {
         Picture first = new Picture("seagull.jpg");
         first.explore();
         first.myCollage();
         first.explore();
     }
-    
+
     /**
      * Method to test the collage method
      */
@@ -147,12 +147,21 @@ public class PictureTester {
         swan.edgeDetection(10);
         swan.explore();
     }
-    
+
     public static void testEdgeDetection2() {
         Picture swan = new Picture("swan.jpg");
         swan.explore();
         swan.edgeDetectionTwo(10);
         swan.explore();
+    }
+
+    public static void testBlur(int x, int y, int w, int h, int n) {
+        Picture redMoto = new Picture("redMotorcycle.jpg");
+        redMoto.explore();
+        for (int i = 0; i < n; i++) {
+            redMoto.blur(x, y, w, h);
+        }
+        redMoto.explore();
     }
 
     /**
@@ -162,7 +171,7 @@ public class PictureTester {
         // uncomment a call here to run a test
         // and comment out the ones you don't want
         // to run
-//        test();
+        test();
 //        testZeroBlue();
 //        testKeepOnlyBlue();
         //testKeepOnlyRed();
@@ -183,7 +192,8 @@ public class PictureTester {
 //        testCopyTwo();
 //        testMyCollage();
 //        testEdgeDetection();
-        testEdgeDetection2();
+//        testEdgeDetection2();
+        testBlur(158, 184, 23, 23, 10);
         //testChromakey();
         //testEncodeAndDecode();
         //testGetCountRedOverValue(250);
